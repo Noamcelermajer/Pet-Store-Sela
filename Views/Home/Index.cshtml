@@ -1,0 +1,57 @@
+﻿@model List<pet_store_noamcelermajer.Models.Animal>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    <h1>Welcome to the Pet Shop!</h1>
+    <div class="text-right">
+        <a href="/Admin" class="btn btn-primary">Admin Panel</a>
+        <a href="/Catalog" class="btn btn-success">Go to Catalog</a> 
+    </div>
+    <h2>Most Commented Animals</h2>
+
+    <div class="row">
+        @foreach (var animal in Model)
+        {
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img class="card-img-top" src="~/images/animals/@animal.PictureName" alt="@animal.Name">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@animal.Name</h5>
+                        <p class="card-text">
+                            Age: @animal.Age <br />
+                            Category: @animal.Category.Name <br />
+                            Description: @animal.Description
+                        </p>
+                        <p class="card-text">
+                            <strong>Comments:</strong> @animal.CommentCount
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .card {
+        height: 500px; 
+    }
+
+    .card-img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60%; 
+        overflow: hidden; 
+    }
+
+    .card-img-top {
+        max-height: 100%; 
+        width: auto;
+    }
+</style>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/Code/Pet Store/pet-store-noamcelermajer/Database/PetShopDB.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="3175"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,7:mainAnimals"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">-- Insert Categories
+INSERT INTO Categories (CategoryId, Name) VALUES (1, 'Mammal');
+INSERT INTO Categories (CategoryId, Name) VALUES (2, 'Reptile');
+INSERT INTO Categories (CategoryId, Name) VALUES (3, 'Aquatic');
+INSERT INTO Categories (CategoryId, Name) VALUES (4, 'Bird');
+INSERT INTO Categories (CategoryId, Name) VALUES (5, 'Insect');
+
+-- Insert Animals
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (1, 'Dog', 3, 'dog.jpg', 1, 'Friendly');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (2, 'Cat', 2, 'cat.jpg', 1, 'Independent');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (3, 'Goldfish', 1, 'goldfish.jpg', 3, 'Quiet');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (4, 'Parrot', 4, 'parrot.jpg', 4, 'Talkative');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (5, 'Iguana', 5, 'iguana.jpg', 2, 'Chill');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (6, 'Hamster', 1, 'hamster.jpg', 1, 'Cute');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (7, 'Snake', 2, 'snake.jpg', 2, 'Slithery');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (8, 'Frog', 1, 'frog.jpg', 3, 'Jumpy');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (9, 'Eagle', 5, 'eagle.jpg', 4, 'Majestic');
+INSERT INTO Animals (AnimalId, Name, Age, PictureName, CategoryId, Description) VALUES (10, 'Spider', 1, 'spider.jpg', 5, 'Creepy');
+
+-- Insert Comments
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (1, 1, 'Such a cute dog!');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (2, 1, 'I love dogs.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (3, 2, 'Cats are the best.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (4, 3, 'I had a goldfish once.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (5, 4, 'Parrots are so colorful.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (6, 5, 'Iguanas look prehistoric.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (7, 6, 'Hamsters are easy to care for.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (8, 7, 'Snakes are fascinating.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (9, 8, 'Frogs are cool.');
+INSERT INTO Comments (CommentId, AnimalId, CommentText) VALUES (10, 9, 'Eagles are so majestic.');
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

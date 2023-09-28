@@ -1,0 +1,65 @@
+@model pet_store_noamcelermajer.Models.Animal
+
+@{
+    ViewData["Title"] = "Create Animal";
+}
+
+<h1>@ViewData["Title"]</h1>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Age">Age</label>
+        <input asp-for="Age" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <select id="Category" name="categoryId" class="form-control">
+            <option value="">Select a category</option>
+            @foreach (var category in ViewData["Categories"] as SelectList)
+            {
+                <option value="@category.Value">@category.Text</option>
+            }
+        </select>
+        <span class="text-danger">* Category is required.</span>
+    </div>
+
+    <input type="hidden" asp-for="CategoryId" id="CategoryId" />
+    
+    <div class="form-group">
+        <label for="imageFile">Image</label>
+        <input type="file" name="imageFile" onchange="updatePictureName(this);" />
+        <input type="hidden" asp-for="PictureName" id="PictureName" />
+        <span class="text-danger">* Image is required.</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+
+    function updatePictureName(input) {
+        if (input.files.length > 0) {
+            $("#PictureName").val(input.files[0].name); 
+        } else {
+            $("#PictureName").val('');
+        }
+    }
+</script>

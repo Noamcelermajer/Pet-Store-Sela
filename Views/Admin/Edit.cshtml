@@ -1,0 +1,41 @@
+@model pet_store_noamcelermajer.Models.Animal
+
+@{
+    ViewData["Title"] =  "Edit Animal";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="AnimalId" />
+
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Age">Age</label>
+        <input asp-for="Age" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control">
+            <option value="">No Category</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="imageFile">Image</label>
+        <input type="file" name="imageFile" />
+
+        <input type="hidden" asp-for="PictureName" />
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

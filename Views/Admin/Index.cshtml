@@ -1,0 +1,61 @@
+@model IEnumerable<pet_store_noamcelermajer.Models.Animal>
+
+<h1>Admin Panel</h1>
+
+<div class="text-right mb-3">
+    <a href="@Url.Action("Create")" class="btn btn-primary">Add Pet</a>
+    <a href="#" class="btn btn-secondary" onclick="addCategory()">Add Category</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var animal in Model)
+        {
+            <tr>
+                <td><img src="~/images/animals/@animal.PictureName" alt="@animal.Name" style="max-height: 50px;" /></td>
+                <td>@animal.Name</td>
+                <td>@animal.Age</td>
+                <td>@animal.Category.Name</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = animal.AnimalId })">Edit</a>
+                    <form method="post" action="@Url.Action("Delete", new { id = animal.AnimalId })" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function addCategory() {
+    var categoryName = prompt("Please enter the new category name:");
+    if (categoryName === null) return; // User clicked "Cancel"
+    
+    if (categoryName.trim() === "") {
+      alert("Category name cannot be empty.");
+      return;
+    }
+
+    $.post('/Admin/AddCategory', { Name: categoryName }, function(data) {
+      if(data.success) {
+        alert('Category added successfully');
+        location.reload();
+      } else {
+        alert('Failed to add category');
+      }
+    });
+  }
+</script>
